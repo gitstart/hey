@@ -1,0 +1,2 @@
+- name: Gitstart Pull Upstream
+  uses: gitstart/pull@v0.0.2
