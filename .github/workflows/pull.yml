@@ -14,7 +14,7 @@ jobs:
           github-token: ${{secrets.OS_PULL}}
           script: |
             console.log("Starting...")
-            const pullRequest = octokit.pulls.list({
+            const pullRequest = github.pulls.list({
               owner: "GitStartHQ",
               repo: "hey",
               head: "gitstart:pr-test"
