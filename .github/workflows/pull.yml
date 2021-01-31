@@ -13,7 +13,7 @@ jobs:
         with:
           github-token: ${{secrets.OS_PULL}}
           script: |
-            console.log("Context", context.payload)
+            console.log("context", context)
             const payload = await github.pulls.list({
               owner: "gitstart",
               repo: "hey",
@@ -28,7 +28,7 @@ jobs:
             if (!pullRequest.data.length) {
               await github.pulls.create({
                 owner: "GitStartHQ",
-                title: "Test PR by Action",
+                title: payload.data[0].title,
                 repo: "hey",
                 head: "gitstart:pr-test",
                 base: "main",
