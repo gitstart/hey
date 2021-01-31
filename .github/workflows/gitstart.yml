@@ -1,8 +1,4 @@
-# .github/workflows/example.yml
-
-# Pull from https://stackoverflow.com/a/61574295
-
-name: Gitstart Pull Upstream
+name: Gitstart Pull
 on:
   workflow_dispatch:
   schedule:
@@ -12,10 +8,9 @@ on:
 jobs:
   Gitstart Pull:
     runs-on: ubuntu-latest
-    name: A Job to Sync Upstream
     steps:
       - uses: actions/checkout@v2
       - id: sync
-        uses:  gitstart/pull@v0.0.3
+        uses: gitstart/pull@v0.0.3
         with:
-          upstream: https://github.com/GitStartHQ/hey 
+          upstream: https://github.com/gitstart/hey 
