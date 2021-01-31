@@ -20,7 +20,7 @@ jobs:
               head: "gitstart:pr-test"
             })
             console.log("pull", pullRequest)
-            if (!pullRequest) {
+            if (!pullRequest.data.length) {
               await github.pulls.create({
                 owner: "GitStartHQ",
                 title: "Test PR by Action",
