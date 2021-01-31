@@ -1,11 +1,39 @@
 name: Create Pull Request
 on:
-  workflow_dispatch:
-#   pull_request_review:
-#     types: [submitted]
+#   workflow_dispatch:
+  pull_request_review:
+    branches:
+      - main
+    types: [submitted]
 jobs:
   Gitstart_Pull_Request:
     runs-on: ubuntu-latest
     steps:
-      - name: Branch Name
-        run: echo running on branch ${GITHUB_REF##*/}
+      - uses: actions/checkout@v2
+      - id: js-script
+        uses: actions/github-script@v3
+        with:
+          github-token: ${{secrets.OS_PULL}}
+          script: |
+            console.log("context", context)
+            const payload = await github.pulls.list({
+              owner: "gitstart",
+              repo: "hey",
+              head: "gitstart:pr-test"
+            })
+            // console.log("payoad", payload)
+            const pullRequest = await github.pulls.list({
+              owner: "GitStartHQ",
+              repo: "hey",
+              head: "gitstart:pr-test"
+            })
+            if (!pullRequest.data.length) {
+              await github.pulls.create({
+                owner: "GitStartHQ",
+                title: payload.data[0].title,
+                repo: "hey",
+                head: "gitstart:pr-test",
+                base: "main",
+              })
+            }
+      
