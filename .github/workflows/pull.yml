@@ -15,9 +15,9 @@ jobs:
           script: |
             console.log("Starting...")
             github.pulls.create({
-              owner: "gitstart",
+              owner: "GitStartHQ",
               repo: "hey",
-              head: "GitStartHQ:main",
+              head: "gitstart:main",
               base: "main",
             })
       
