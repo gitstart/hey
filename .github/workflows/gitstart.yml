@@ -13,4 +13,5 @@ jobs:
       - id: sync
         uses: gitstart/pull@main
         with:
-          upstream: https://github.com/gitstart/hey 
+          upstream_url: https://github.com/GitStartHQ/hey
+          upstream_branch: main 
