@@ -1,2 +1,21 @@
-- name: Gitstart Pull Upstream
-  uses: gitstart/pull@v0.0.2
+# .github/workflows/example.yml
+
+# Pull from https://stackoverflow.com/a/61574295
+
+name: Gitstart Pull Upstream
+on:
+  workflow_dispatch:
+  schedule:
+     # actually, ~5 minutes is the highest
+     # effective frequency you will get
+    - cron:  '* * * * *'
+jobs:
+  Gitstart Pull:
+    runs-on: ubuntu-latest
+    name: A Job to Sync Upstream
+    steps:
+      - uses: actions/checkout@v2
+      - id: sync
+        uses:  gitstart/pull@v0.0.3
+        with:
+          upstream: https://github.com/GitStartHQ/hey 
