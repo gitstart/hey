@@ -1,10 +1,10 @@
 name: Create Pull Request
 on:
-#   workflow_dispatch:
-  pull_request_review:
-    branches:
-      - main
-    types: [submitted]
+  workflow_dispatch:
+    inputs:
+      branch:
+        description: 'Branch to Push'
+        required: true
 jobs:
   Gitstart_Pull_Request:
     runs-on: ubuntu-latest
@@ -19,20 +19,20 @@ jobs:
             const payload = await github.pulls.list({
               owner: "gitstart",
               repo: "hey",
-              head: "gitstart:pr-test"
+              head: "gitstart:${{ github.event.inputs.branch }}"
             })
             // console.log("payoad", payload)
             const pullRequest = await github.pulls.list({
               owner: "GitStartHQ",
               repo: "hey",
-              head: "gitstart:pr-test"
+              head: "gitstart:${{ github.event.inputs.branch }}"
             })
             if (!pullRequest.data.length) {
               await github.pulls.create({
                 owner: "GitStartHQ",
                 title: payload.data[0].title,
                 repo: "hey",
-                head: "gitstart:pr-test",
+                head: "gitstart:${{ github.event.inputs.branch }}",
                 base: "main",
               })
             }
