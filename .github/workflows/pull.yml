@@ -16,7 +16,7 @@ jobs:
             console.log("Starting...")
             github.pulls.create({
               owner: "GitStartHQ",
-              title: "Test PR by Action" 
+              title: "Test PR by Action",
               repo: "hey",
               head: "gitstart:pr-test",
               base: "main",
