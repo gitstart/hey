@@ -15,7 +15,7 @@ jobs:
         with:
           github-token: ${{secrets.OS_PULL}}
           script: |
-            console.log("context", context.payload.repository)
+            console.log("context", JSON.stringify(context.payload.repository))
             const payload = await github.pulls.list({
               owner: context.payload.actor,
               repo: context.payload.repository.name,
