@@ -13,13 +13,12 @@ jobs:
         with:
           github-token: ${{secrets.OS_PULL}}
           script: |
-            console.log("Starting...")
+            console.log("Context", github.context.payload)
             const pullRequest = await github.pulls.list({
               owner: "GitStartHQ",
               repo: "hey",
               head: "gitstart:pr-test"
             })
-            console.log("pull", pullRequest)
             if (!pullRequest.data.length) {
               await github.pulls.create({
                 owner: "GitStartHQ",
