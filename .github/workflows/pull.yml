@@ -13,7 +13,7 @@ jobs:
         with:
           github-token: ${{secrets.OS_PULL}}
           script: |
-            console.log("Context", github.context.payload)
+            console.log("Context", context.payload)
             const pullRequest = await github.pulls.list({
               owner: "GitStartHQ",
               repo: "hey",
