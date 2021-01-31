@@ -19,6 +19,7 @@ jobs:
               repo: "hey",
               head: "gitstart:pr-test"
             })
+            console.log("pull", pullRequest)
             if (!pullRequest) {
               await github.pulls.create({
                 owner: "GitStartHQ",
