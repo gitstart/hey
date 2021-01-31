@@ -17,7 +17,7 @@ jobs:
           script: |
             console.log("context", JSON.stringify(context.payload.repository))
             const payload = await github.pulls.list({
-              owner: "gitstart",
+              owner: context.payload.repository.owner.login,
               repo: context.payload.repository.name,
               head: "gitstart:${{ github.event.inputs.branch }}"
             })
