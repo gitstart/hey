@@ -14,14 +14,14 @@ jobs:
           github-token: ${{secrets.OS_PULL}}
           script: |
             console.log("Starting...")
-            const pullRequest = github.pulls.list({
+            const pullRequest = await github.pulls.list({
               owner: "GitStartHQ",
               repo: "hey",
               head: "gitstart:pr-test"
             })
             console.log("pullRequest", pullRequest)
             if (!pullRequest) {
-              github.pulls.create({
+              await github.pulls.create({
                 owner: "GitStartHQ",
                 title: "Test PR by Action",
                 repo: "hey",
