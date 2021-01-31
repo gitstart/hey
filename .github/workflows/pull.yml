@@ -13,7 +13,7 @@ jobs:
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
           script: |
-            console.log({context})
+            console.log(JSON.stringify(context))
             github.pulls.create({
               owner: context.repo.owner,
               repo: context.repo.repo,
