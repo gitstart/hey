@@ -17,7 +17,7 @@ jobs:
             github.pulls.create({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              head: https://github.com/GitStartHQ/hey/tree/pr-test,
-              base: https://github.com/GitStartHQ/hey/tree/main,
+              head: "https://github.com/GitStartHQ/hey/tree/pr-test",
+              base: "https://github.com/GitStartHQ/hey/tree/main",
             })
       
