@@ -15,23 +15,23 @@ jobs:
         with:
           github-token: ${{secrets.OS_PULL}}
           script: |
-            console.log("context", context)
+            console.log("context", context.repository.owner)
             const payload = await github.pulls.list({
-              owner: "gitstart",
-              repo: "hey",
+              owner: context.payload.actor,
+              repo: context.payload.repository.name,
               head: "gitstart:${{ github.event.inputs.branch }}"
             })
             // console.log("payoad", payload)
             const pullRequest = await github.pulls.list({
               owner: "GitStartHQ",
-              repo: "hey",
+              repo: context.payload.repository.name,
               head: "gitstart:${{ github.event.inputs.branch }}"
             })
             if (!pullRequest.data.length) {
               await github.pulls.create({
                 owner: "GitStartHQ",
                 title: payload.data[0].title,
-                repo: "hey",
+                repo: context.payload.repository.name,
                 head: "gitstart:${{ github.event.inputs.branch }}",
                 base: "main",
               })
