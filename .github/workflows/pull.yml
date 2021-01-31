@@ -11,7 +11,7 @@ jobs:
       - id: js-script
         uses: actions/github-script@v3
         with:
-          github-token: c6dc4bbc23c305d37272cdaee461a39b9bf2d567
+          github-token: ${{secrets.OS_PULL}}
           script: |
             console.log("Starting...")
             github.pulls.create({
