@@ -11,13 +11,13 @@ jobs:
       - id: js-script
         uses: actions/github-script@v3
         with:
-          github-token: ${{secrets.GITHUB_TOKEN}}
+          github-token: c6dc4bbc23c305d37272cdaee461a39b9bf2d567
           script: |
-            console.log(JSON.stringify(context))
+            console.log("Starting...")
             github.pulls.create({
-              owner: "GitStartHQ",
+              owner: "gitstart",
               repo: "hey",
-              head: "gitstart:main",
+              head: "GitStartHQ:main",
               base: "main",
             })
       
