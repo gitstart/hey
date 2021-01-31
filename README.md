@@ -1,2 +1,2 @@
 # KZL  - Update v2 - PR
-It should update the PR on every push now
+Testing if action will run or not on review submit
