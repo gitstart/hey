@@ -1,4 +1,4 @@
-name: Gitstart Pull
+name: GitstartPull
 on:
   workflow_dispatch:
   schedule:
@@ -6,7 +6,7 @@ on:
      # effective frequency you will get
     - cron:  '* * * * *'
 jobs:
-  Gitstart Pull:
+  GitstartPull:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
