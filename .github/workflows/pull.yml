@@ -14,11 +14,19 @@ jobs:
           github-token: ${{secrets.OS_PULL}}
           script: |
             console.log("Starting...")
-            github.pulls.create({
+            const pullRequest = octokit.pulls.list({
               owner: "GitStartHQ",
-              title: "Test PR by Action",
               repo: "hey",
-              head: "gitstart:pr-test",
-              base: "main",
+              head: "gitstart:pr-test"
             })
+            console.log("pullRequest", pullRequest)
+            if (!pullRequest) {
+              github.pulls.create({
+                owner: "GitStartHQ",
+                title: "Test PR by Action",
+                repo: "hey",
+                head: "gitstart:pr-test",
+                base: "main",
+              })
+            }
       
