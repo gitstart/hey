@@ -4,7 +4,7 @@ on:
   schedule:
      # actually, ~5 minutes is the highest
      # effective frequency you will get
-    - cron:  '* * * * *'
+    - cron:  '0 23 * * *'
 jobs:
   GitstartPull:
     runs-on: ubuntu-latest
