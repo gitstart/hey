@@ -15,9 +15,9 @@ jobs:
           script: |
             console.log(JSON.stringify(context))
             github.pulls.create({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              head: "https://github.com/GitStartHQ/hey/tree/pr-test",
-              base: "https://github.com/GitStartHQ/hey/tree/main",
+              owner: "GitStartHQ",
+              repo: "hey",
+              head: "gitstart:main",
+              base: "main",
             })
       
