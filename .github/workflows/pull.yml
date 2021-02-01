@@ -12,7 +12,7 @@ jobs:
       - uses: actions/checkout@v2
       - id: pull
         uses: gitstart/pull/CreatePull@main
-        with:
-          token: ${{secrets.OS_PULL}}
-          owner: "GitStartHQ"
-          branch: ${{ github.event.inputs.branch } 
+#         with:
+#           token: ${{secrets.OS_PULL}}
+#           owner: "GitStartHQ"
+#           branch: ${{ github.event.inputs.branch } 
