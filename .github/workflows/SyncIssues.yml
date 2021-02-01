@@ -7,7 +7,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - id: sync-issue
-        uses: gitstart/pull/SycnIssues@main
+        uses: gitstart/pull/SyncIssues@main
         with:
           token: ${{secrets.OS_PULL}}
           owner: "GitStartHQ"
