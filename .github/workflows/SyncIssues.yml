@@ -1,0 +1,14 @@
+name: Sync Issues
+on:
+  workflow_dispatch:
+jobs:
+  GitstartCreatePullRequest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - id: sync-issue
+        uses: gitstart/pull/SycnIssues@main
+        with:
+          token: ${{secrets.OS_PULL}}
+          owner: "GitStartHQ"
+          repo: hey
