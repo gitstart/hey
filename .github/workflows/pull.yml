@@ -6,34 +6,11 @@ on:
         description: 'Branch to Push'
         required: true
 jobs:
-  Gitstart_Pull_Request:
+  Gitstart_Create_Pull_Request:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - id: js-script
-        uses: actions/github-script@v3
+      - uses: gitstart/pull/CreatePull@main
         with:
-          github-token: ${{secrets.OS_PULL}}
-          script: |
-            console.log("context", JSON.stringify(context.payload.repository))
-            const payload = await github.pulls.list({
-              owner: context.payload.repository.owner.login,
-              repo: context.payload.repository.name,
-              head: "gitstart:${{ github.event.inputs.branch }}"
-            })
-            // console.log("payoad", payload)
-            const pullRequest = await github.pulls.list({
-              owner: "GitStartHQ",
-              repo: context.payload.repository.name,
-              head: "gitstart:${{ github.event.inputs.branch }}"
-            })
-            if (!pullRequest.data.length) {
-              await github.pulls.create({
-                owner: "GitStartHQ",
-                title: payload.data[0].title,
-                repo: context.payload.repository.name,
-                head: "gitstart:${{ github.event.inputs.branch }}",
-                base: "main",
-              })
-            }
-      
+          token: ${{secrets.OS_PULL}}
+          owner: GitStartHQ
+          branch: ${{ github.event.inputs.branch } 
