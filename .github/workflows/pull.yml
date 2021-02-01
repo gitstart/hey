@@ -17,5 +17,4 @@ jobs:
           upstream_owner: "GitStartHQ"
           forked_branch:  ${{ github.event.inputs.branch }}
           upstream_repo: hey
-          forked_repo: hey 
           upstream_branch: main
