@@ -11,7 +11,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - id: sync
-        uses: gitstart/pull@main
+        uses: gitstart/pull/Sync@main
         with:
           upstream_url: https://github.com/GitStartHQ/hey
           upstream_branch: main 
