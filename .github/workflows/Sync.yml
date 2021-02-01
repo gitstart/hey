@@ -1,0 +1,17 @@
+name: GitstartSync
+on:
+  workflow_dispatch:
+  schedule:
+     # actually, ~5 minutes is the highest
+     # effective frequency you will get
+    - cron:  '0 23 * * *'
+jobs:
+  GitstartPull:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - id: sync
+        uses: gitstart/pull/Sync@main
+        with:
+          upstream_url: https://github.com/GitStartHQ/hey
+          upstream_branch: main 

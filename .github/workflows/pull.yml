@@ -1,0 +1,20 @@
+name: Create Pull Request
+on:
+  workflow_dispatch:
+    inputs:
+      branch:
+        description: 'Branch to Push'
+        required: true
+jobs:
+  GitstartCreatePullRequest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - id: pull
+        uses: gitstart/pull/CreatePull@main
+        with:
+          token: ${{secrets.OS_PULL}}
+          upstream_owner: "GitStartHQ"
+          forked_branch:  ${{ github.event.inputs.branch }}
+          upstream_repo: hey
+          upstream_branch: main
