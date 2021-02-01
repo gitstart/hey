@@ -13,7 +13,7 @@ jobs:
       - id: pull
         uses: gitstart/pull/CreatePull@main
         with:
-#           token: ${{secrets.OS_PULL}}
+          token: ${{secrets.OS_PULL}}
           owner: "GitStartHQ"
 #           branch: ${{ github.event.inputs.branch } 
           repo: hey
