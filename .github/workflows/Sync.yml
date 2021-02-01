@@ -1,4 +1,4 @@
-name: GitstartPull
+name: GitstartSync
 on:
   workflow_dispatch:
   schedule:
