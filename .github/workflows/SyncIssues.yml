@@ -10,5 +10,5 @@ jobs:
         uses: gitstart/pull/SyncIssues@main
         with:
           token: ${{secrets.OS_PULL}}
-          owner: "GitStartHQ"
-          repo: hey
+          upstream_owner: "GitStartHQ"
+          upstream_repo: hey
