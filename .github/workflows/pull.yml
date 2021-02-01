@@ -6,11 +6,11 @@ on:
         description: 'Branch to Push'
         required: true
 jobs:
-  Gitstart_Create_Pull_Request:
+  GitstartCreatePullRequest:
     runs-on: ubuntu-latest
     steps:
       - uses: gitstart/pull/CreatePull@main
         with:
           token: ${{secrets.OS_PULL}}
-          owner: GitStartHQ
+          owner: "GitStartHQ"
           branch: ${{ github.event.inputs.branch } 
