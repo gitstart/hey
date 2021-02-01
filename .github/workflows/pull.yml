@@ -15,6 +15,6 @@ jobs:
         with:
           token: ${{secrets.OS_PULL}}
           owner: "GitStartHQ"
-          branch: ${{ inputs.branch } 
+          branch: ${{ inputs.branch }}
           repo: hey
           base: main
